@@ -22,4 +22,25 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/beers', async (req, res) => {
+  let beersFromAPI = await punkAPI.getBeers();
+  res.render('beers', {beersFromAPI});
+});
+
+// app.get('/beers', (req, res) => {
+//   punkAPI.getBeers()
+//   .then(beersFromAPI => {
+//   res.render('beers', {beersFromAPI});
+//   })
+// })
+
+app.get('/random-beer', async  (req, res) => {
+  let randomBeer = await punkAPI.getRandom();
+  res.render('random-beer', {randomBeer});
+}); //as this returns one value as an array - you either need to iterate through it to access it via {{#each}}
+    // or let randomBeerArray = await punkAPI.getRandom();
+    // let randomBeer = randomBeerArray[0], then render
+
+
+
 app.listen(3000, () => console.log('🏃‍ on port 3000'));

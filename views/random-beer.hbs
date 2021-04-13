@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+           {{#each randomBeer}}
+
+            <img class="beer-img" src={{image_url}} alt="beer-image"/>
+            <h4 class="beer-name">{{name}}</h4>
+            <p class="beer-description">{{description}}</p>
+            <p class="beer-tagline">{{tagline}}</p>
+            <h5 class="food-pairing">{{food_pairing}}</h5>
+            <p class="brewers-tips">{{brewers_tips}}</p>
+
+           {{/each}}
+
+        </div>
+    </div>
+</div>
